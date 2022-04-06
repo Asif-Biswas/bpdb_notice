@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="bg-dark p-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex text-white align-items-center">
+            <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+                    <div class="d-flex">
+                    <img src="{% static 'images/bpdb.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <div style="font-size: 20px; margin-left: 8px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><b>BPDB</b></div>
+                </div>
+            </a>
+            <div class="pl-3 hide-on-mobile show-flex-on-desktop">
+                <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+                    <div class="mx-2 cool-link">Notices</div>
+                </a>
+                <a href="{% url 'updates' %}" style="text-decoration: none; color: inherit;">
+                    <div class="mx-2 cool-link">Updates</div>
+                </a>
+            </div>
+        </div>
+        <div class="hide-on-mobile show-on-desktop">
+            <button class="btn btn-outline-light" type="submit">Login page</button>
+        </div>
+        <div class="show-on-mobile hide-on-desktop">
+            <div class="menu-container" onclick="myMenuFunction(this)">
+                <div class="menu-bar1"></div>
+                <div class="menu-bar2"></div>
+                <div class="menu-bar3"></div>
+            </div>
+        </div>
+    </div>
+    <div id="show-after-menu-clicked" class="d-none text-white mt-2 show-on-mobile hide-on-desktop">
+        <div>
+            <div class="py-2 border-top cool-link">Notices</div>
+            <div class="py-2 cool-link">Updates</div>
+            <div class="py-2 cool-link">Login page</div>
+        </div>
+    </div>
+</div>

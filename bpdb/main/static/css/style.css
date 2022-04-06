@@ -1,0 +1,112 @@
+.pointer{
+    cursor: pointer;
+}
+
+
+/* Style the buttons that are used to open and close the accordion panel */
+.my-accordion {
+    background-color: rgb(59, 59, 59);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .my-accordion:hover {
+    background-color: rgb(83, 83, 83);
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .my-panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+
+.my-bg-color{
+    background-color: #27598f!important;
+}
+.my-border-color{
+    border-color: #27598f!important;
+}
+
+
+.menu-container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .menu-bar1, .menu-bar2, .menu-bar3 {
+    width: 30px;
+    height: 3px;
+    background-color: rgb(246, 246, 246);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .menu-change .menu-bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-35deg) translate(-9px, 6px) ;
+  }
+  
+  /* Fade out the second bar */
+  .menu-change .menu-bar2 {
+    opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .menu-change .menu-bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(35deg) translate(-8px, -8px) ;
+  }
+
+
+@media (max-width: 600px) {
+    .show-on-mobile {
+        display: block;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media (min-width: 600px) {
+    .show-on-desktop {
+        display: block;
+    }
+    .show-flex-on-desktop {
+        display: flex;
+    }
+    .hide-on-desktop {
+        display: none;
+    }
+}
+
+
+.cool-link {
+    color: rgb(251, 251, 251);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    transition: width .3s;
+  }
+  
+  .cool-link:hover::after {
+    width: 100%;
+  }

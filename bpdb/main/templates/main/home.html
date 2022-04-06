@@ -1,0 +1,60 @@
+
+{% extends 'main/base.html' %}
+
+{% block body %}
+
+    <div style="width: 100%; max-width: 1100px; margin: 8px auto; padding: 0 4px;">
+        <div class="border my-bg-color mt-md-4" style="border-radius: 8px 8px 0 0;">
+            <h5 class="text-white p-3 mt-1">বাংলাদেশ বিদ্যুৎ উন্নয়ন বোর্ডের নোটিশসমূহ</h5>
+        </div>
+        <div class="border border-top-0 mb-5 p-2 p-md-3 bg-light" style="border-radius: 0 0 8px 8px;">
+            <!-- <div class="border mb-3" style="border-radius: 4px;">
+                <div class="my-accordion d-flex justify-content-between align-items-center pt-3 px-3 pb-2 text-white bg-secondary pointer" style="border-radius: 4px;">
+                    <h6>নোটিশ 01 নোটিশ 01 নোটিশ 01</h6>
+                    <h6 style="font-size: 14px; text-align: right;">প্রকাশিত তারিখ: ২০/০২/১৯৯৮</h6>
+                </div>
+                <div class="my-panel active border-top " style="line-height: 170%; font-size: 15px;">
+                    <div class="py-3 px-2">
+                        ১। সিস্টেমে অধিক নিরাপত্তা নিশ্চিতকরনের লক্ষ্যে নতুন তৈরিকৃত ইউজার আইডি থেকে প্রথমবার লগইনে OTP system যুক্ত করা হয়েছে। নতুন ইউজারের মোবাইল এবং ই-ইমেলে ৬ ডিজিটের একটি পিন কোড প্রেরণ করা হবে। উক্ত পিন কোডটি প্রোফাইলের পাসওয়ার্ড অপশনে প্রদান করে ইউজার তার নিজস্ব পাসওয়ার্ড সেট করতে পারবেন।<br/>
+                        ২। প্রোফাইল ব্যবস্থাপনাতে ইউজারের কর্মইতিহাস যোগ করা হয়েছে যেখানে ই-নথিতে অর্ন্তভুক্তির শুরু থেকে যেসকল পদবিতে ইউজার দায়িত্ব পালন করেছেন তার সময়কাল উল্লেখ থাকবে।<br/>
+                        ৩) শাখা অনারবোর্ড যুক্ত করা হয়েছে। অফিস এডমিনের আইডি থেকে প্রত্যেক শাখার জন্য একটি করে অনারবোর্ড তৈরি করা যাবে যা ঐ শাখার সকল ব্যবহারকারী হোম পেইজের বামদিকের মেন্যুতে দেখতে পাবেন।<br/>
+                        ৪) নথিতে একাধিক অনুচ্ছেদ থাকলে অনুচ্ছেদ ভিউ এসেনডিং ডিসেনডিং (উপর/নিচ) দেখার ব্যবস্থা করা যাবে।<br/>
+                        ৫) সচিবালয়ের নির্দেশমালা অনুযায়ী নথির ধরণ ও কোড (সচিবালয় নির্দেশমালা ২০১৪ এর ৭৩নং পেইজ) নথির ধরণ তৈরির পেইজে দেখার ব্যবস্থা করা হয়েছে।<br/>
+                        ৬) শাখার নাম বড় হলে মেন্যুবারের ডাক/নথি/ড্যাশবোর্ড/রিপোর্ট/দপ্তর মডিউলের এর কিছু অংশ ড্রপ-ডাউন এ ওপেন হবে।<br/>
+                        ৭) খসড়া পত্রে প্রাপক ও অনুলিপি বাছাই এর সময় একটা শাখার সকল ইউজারকে একসাথে বাছাই করার অপশন যুক্ত করা হয়েছে।<br/>
+                        ৮) গার্ড ফাইলে একাধিক পৃষ্ঠা এক সাথে যুক্ত করার ব্যবস্থা করা হয়েছে।
+                    </div>
+                </div>
+            </div> -->
+
+
+
+            {% for notice in notice %}
+            <div class="mb-3 bg-white card" style="border-radius: 5px;">
+                <div class="my-accordion d-flex justify-content-between align-items-center pt-3 px-3 pb-2 text-white pointer" style="border-radius: 5px;">
+                    <h6 style="font-size: 16px; margin-right: 8px;">{{ notice.title }}</h6>
+                    <h6 style="font-size: 14px; text-align: right;"><span style="font-size: 13px;">প্রকাশিত তারিখ: </span>{{ notice.created_at|date:'d-m-Y' }}</h6>
+                </div>
+                <div class="my-panel" style="font-size: 15px; border-radius: 0 0 5px 5px;">
+                    <div class="py-4 px-2">
+                        {{ notice.content | safe }}
+                    </div>
+                    {% if notice.pdf %}
+                    <!-- show pdf -->
+                    <div class="py-4 px-2">
+                        <object data="{{ notice.pdf }}" type="application/pdf" width="100%" height="500px">
+                            <p>It appears you don't have a PDF plugin for this browser.
+                                No biggie... you can <a href="{{ notice.pdf }}">click here to
+                                    download the PDF file.</a></p>
+                        </object>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    
+{% endblock body %}
