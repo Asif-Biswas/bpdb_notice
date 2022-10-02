@@ -24,4 +24,5 @@ admin.site.site_header = 'BPDB Administration'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path(r'^tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
